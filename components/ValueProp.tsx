@@ -5,7 +5,7 @@ import FeatureCard from "./FeatureCard";
 
 export default function ValueProp() {
   return (
-    <section className="w-full px-6 flex flex-col gap-12 py-40  md:px-12 lg:px-24 bg-white">
+    <section className="w-full px-6 flex flex-col gap-12 py-40  md:px-1 lg:px-24 bg-white">
 
       <SectionHeader
         icon={<HugeiconsIcon icon={Home12Icon} size={32} />}
@@ -13,7 +13,7 @@ export default function ValueProp() {
         description="Optimizamos cada aspecto de tu inversión para maximizar el retorno y minimizar tus preocupaciones."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto w-full">
         {/* Row 1: 1/2 proportion */}
         <FeatureCard
           className="md:col-span-1"

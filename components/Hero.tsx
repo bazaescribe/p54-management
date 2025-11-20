@@ -40,7 +40,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full px-6 md:px-12 lg:px-24 flex flex-col items-center text-center">
+    <section id="hero" className="relative w-full px-6 md:px-12 lg:px-24 flex flex-col items-center text-center">
       <motion.div
         className="max-w-4xl mx-auto py-40 flex flex-col items-center"
         variants={containerVariants}
@@ -51,7 +51,7 @@ export default function Hero() {
           variants={itemVariants}
           className="mb-6 flex items-center gap-3 px-4 py-1 rounded-3xl bg-[#FFDEDF]"
         >
-          <Image src="/assets/logos/airbnb-symbol.png" alt="Logo" width={20} height={20} />
+          <Image src="/assets/logos/airbnb-symbol.png" alt="Logo" width={16} height={16} />
           <span className="text-[#FF5A5F] text-xs">Super Host 2025</span>
           <span className="text-xs">🎉</span>
         </motion.div>

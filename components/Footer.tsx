@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-900 text-white pt-20 pb-10 px-6 md:px-12 lg:px-24">
+    <footer className="bg-zinc-900 text-white pt-20 pb-26 px-6 md:pb-10 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         {/* Brand Column */}
         <div className="flex flex-col items-start">

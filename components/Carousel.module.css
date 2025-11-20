@@ -1,0 +1,61 @@
+.carousel {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-top: 0rem;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  --ms-scroll-snap-type: x mandatory;
+  --ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  /* margin-right is handled by the spacer now */
+}
+
+.spacer {
+  /* This ensures the end of the list has padding that can be snapped to */
+  min-width: var(--padding-left, 1rem);
+  height: 1px;
+  scroll-snap-align: end;
+  /* Snap to the end of this spacer */
+  flex-shrink: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+}
+
+.button {
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(212, 212, 216, 0.2);
+  /* zinc-300/20 */
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(228, 228, 231);
+  /* zinc-200 */
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+}

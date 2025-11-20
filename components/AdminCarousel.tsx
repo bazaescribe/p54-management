@@ -88,7 +88,7 @@ export default function AdminCarousel() {
 
         <Carousel alignToRef={headerRef} className="w-full">
           {services.map((item, index) => (
-            <div key={index} className="flex flex-col h-full w-[360px] md:w-[360px] flex-shrink-0 snap-start">
+            <div key={index} className="flex flex-col h-full w-[320px] md:w-[360px] flex-shrink-0 snap-start">
               <div className="relative w-full h-[420px] mb-4 rounded-sm overflow-hidden shadow-lg">
                 <Image
                   src={item.image}

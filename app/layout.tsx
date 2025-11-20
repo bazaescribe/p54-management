@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "P54 - Rendimiento real",
+  title: "P54 - Administración de rentas de estancia corta",
   description: "Convierte tu propiedad en un negocio real",
   icons: {
     icon: "/brand/favicon.png",

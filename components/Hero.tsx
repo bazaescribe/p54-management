@@ -1,7 +1,8 @@
 'use client';
 
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
   const containerVariants: Variants = {
@@ -39,6 +40,51 @@ export default function Hero() {
     },
   };
 
+  const [badgeState, setBadgeState] = useState<'initial' | 'expanding' | 'counting' | 'finished'>('initial');
+  const [year, setYear] = useState(2021);
+  const [showEmoji, setShowEmoji] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBadgeState('expanding');
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (badgeState === 'expanding') {
+      const timer = setTimeout(() => {
+        setBadgeState('counting');
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [badgeState]);
+
+  useEffect(() => {
+    if (badgeState === 'counting') {
+      const interval = setInterval(() => {
+        setYear((prev) => {
+          if (prev >= 2025) {
+            clearInterval(interval);
+            setBadgeState('finished');
+            return 2025;
+          }
+          return prev + 1;
+        });
+      }, 100);
+      return () => clearInterval(interval);
+    }
+  }, [badgeState]);
+
+  useEffect(() => {
+    if (badgeState === 'finished') {
+      const timer = setTimeout(() => {
+        setShowEmoji(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [badgeState]);
+
   return (
     <section id="hero" className="relative w-full px-6 md:px-12 lg:px-24 flex flex-col items-center text-center">
       <motion.div
@@ -49,14 +95,50 @@ export default function Hero() {
       >
         <motion.div
           variants={itemVariants}
-          className="mb-6 flex items-center gap-3 px-4 py-1 rounded-3xl bg-[#FFDEDF]"
+          className="mb-6"
         >
-          <Image src="/assets/logos/airbnb-symbol.png" alt="Logo" width={16} height={16} />
-          <span className="text-[#FF5A5F] text-xs">Super Host 2025</span>
-          <span className="text-xs">🎉</span>
+          <motion.div
+            className="flex items-center gap-3 p-1 rounded-3xl overflow-hidden"
+            initial={{ backgroundColor: "rgba(255, 222, 223, 0)", paddingRight: "0.25rem" }}
+            animate={{
+              backgroundColor: badgeState === 'initial' ? "rgba(255, 222, 223, 0)" : "#FFE5EA",
+              paddingRight: badgeState === 'initial' ? "0.25rem" : "1rem"
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <div
+              className="flex-shrink-0 flex justify-center items-center gap-2 h-8 w-8 rounded-full"
+              style={{ background: "linear-gradient(-45deg, #e6193fff, #FF385C)" }}
+            >
+              <Image
+                src="/assets/logos/airbnb-symbol-white.png"
+                style={{ marginTop: "-2px" }}
+                alt="Logo"
+                width={16} height={16} />
+            </div>
+            <AnimatePresence>
+              {badgeState !== 'initial' && (
+                <motion.div
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: "auto" }}
+                  className="flex items-center gap-3 whitespace-nowrap"
+                >
+                  <span className="text-[#FF385C] text-sm">Super Host {year}</span>
+                  {showEmoji && (
+                    <motion.span
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                      className="text-sm"
+                    >
+                      🎉
+                    </motion.span>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </motion.div>
-
-
 
         <motion.h1
           variants={itemVariants}

@@ -33,8 +33,8 @@ export default function Navbar() {
       <nav
         className="flex fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-24 transition-all duration-300 bg-[#F6F6F2]"
         style={{
-          height: '80px',
-          boxShadow: isScrolled ? '0 2px 16px rgba(0, 0, 0, 0.1)' : 'none',
+          height: '68px',
+          borderBottom: isScrolled ? '0.5px solid rgba(0, 0, 0, 0.1)' : '0.5px solid transparent',
         }}
       >
         <div className="w-full flex items-center justify-between relative">

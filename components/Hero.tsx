@@ -131,7 +131,7 @@ export default function Hero() {
                       transition={{ type: "spring", stiffness: 200, damping: 10 }}
                       className="text-sm"
                     >
-                      🎖️
+                      🎉
                     </motion.span>
                   )}
                 </motion.div>

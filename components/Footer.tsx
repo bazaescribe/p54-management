@@ -15,12 +15,8 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="flex flex-col items-start">
           <div className="mb-6 relative w-24 h-8">
-            {/* Using a white version of the logo if available, or just the standard one with filter if needed. 
-                 For now assuming standard logo works or we might need a white variant. 
-                 I'll use the standard one and maybe apply brightness-0 invert if it's black text.
-                 Let's assume standard logo for now. */}
             <Image
-              src="/brand/logo.png"
+              src="/brand/P54.svg"
               alt="P54 Logo"
               fill
               className="object-contain brightness-0 invert"

@@ -47,9 +47,16 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-8">
-          <Image src="/brand/logo.png" alt="Logo" width={65} height={24} />
+        <motion.div
+          variants={itemVariants}
+          className="mb-6 flex items-center gap-3 px-4 py-1 rounded-3xl bg-[#FFDEDF]"
+        >
+          <Image src="/assets/logos/airbnb-symbol.png" alt="Logo" width={20} height={20} />
+          <span className="text-[#FF5A5F] text-xs">Super Host 2025</span>
+          <span className="text-xs">🎉</span>
         </motion.div>
+
+
 
         <motion.h1
           variants={itemVariants}

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,8 @@ export default function Navbar() {
         // Check if we've scrolled past the hero section (with a small buffer)
         setIsScrolledPastHero(heroBottom < 100);
       }
+
+      setIsScrolled(window.scrollY > 1);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -27,7 +30,13 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop & Mobile Top Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 py-6 px-6 md:px-12 lg:px-24 transition-all duration-300 bg-[#F6F6F2] backdrop-blur-md border-b border-gray-100">
+      <nav
+        className="flex fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-24 transition-all duration-300 bg-[#F6F6F2]"
+        style={{
+          height: '80px',
+          boxShadow: isScrolled ? '0 2px 16px rgba(0, 0, 0, 0.1)' : 'none',
+        }}
+      >
         <div className="w-full flex items-center justify-between relative">
 
           {/* Logo - Left on Desktop, Center on Mobile */}
@@ -46,7 +55,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-brand text-white px-6 py-2 text-sm font-medium rounded-sm hover:bg-brand-light transition-colors"
+                  className="bg-brand text-white px-5 py-3 text-sm font-medium rounded-sm hover:bg-brand-light transition-colors"
                 >
                   Quiero rentar mi propiedad
                 </motion.button>

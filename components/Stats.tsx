@@ -91,7 +91,7 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-18 relative w-48 h-24 flex justify-center items-center mx-auto">
+          className="mt-18 relative w-40 aspect-[19/10] flex justify-center items-center mx-auto">
           <Image
             src="/assets/misc/badge-airbnb.png"
             alt="Airbnb Super Host Badge"

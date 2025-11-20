@@ -21,7 +21,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "P54 - Administración de rentas de estancia corta",
   description: "Convierte tu propiedad en un negocio real",
-
+  openGraph: {
+    title: "P54 - Administración de rentas de estancia corta",
+    description: "Convierte tu propiedad en un negocio real",
+    url: "https://p54.mx",
+    siteName: "P54",
+    locale: "es_MX",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "P54 - Administración de rentas de estancia corta",
+    description: "Convierte tu propiedad en un negocio real",
+  },
 };
 
 export default function RootLayout({
